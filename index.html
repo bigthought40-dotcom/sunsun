@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="관심사를 나누고 질문을 주고받는 작은 커뮤니티">
+  <title>모아 | 함께 나누는 커뮤니티</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">m</span><span>moa<span class="brand-dot">.</span></span></a>
+    <nav class="nav-links"><a class="active" href="#feed">홈</a><a href="#feed">커뮤니티</a><a href="#about">소개</a></nav>
+    <div class="account-area" id="accountArea">
+      <button class="btn btn-ghost" id="loginOpen">로그인</button>
+      <button class="btn btn-primary" id="signupOpen">회원가입 <span>↗</span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse"></span> YOUR SPACE, YOUR VOICE</div>
+        <h1>관심사를 나누고,<br><span class="gradient-text">생각을 연결하다.</span></h1>
+        <p>질문하고, 기록하고, 서로의 이야기를 발견해 보세요.<br>모아는 당신의 생각이 모이는 작은 커뮤니티입니다.</p>
+        <div class="hero-actions"><button class="btn btn-primary btn-large" id="writeHero">첫 게시물 작성하기 <span>↗</span></button><a class="text-link" href="#feed">게시물 둘러보기 <span>↓</span></a></div>
+        <div class="social-proof"><div class="avatar-stack"><span>🌱</span><span>💡</span><span>🎨</span><span>☕</span></div><div><strong>작은 생각도 환영해요</strong><small>나만의 이야기부터 편하게 시작해요</small></div></div>
+      </div>
+      <div class="hero-art">
+        <div class="art-orbit orbit-a"></div><div class="art-orbit orbit-b"></div>
+        <div class="floating-card card-top"><span class="mini-icon lilac">✦</span><div><strong>오늘의 영감</strong><small>새로운 생각이 떠올랐어요</small></div><span class="tiny-heart">♡</span></div>
+        <div class="main-art-card"><div class="art-sun"></div><div class="art-mountain mountain-back"></div><div class="art-mountain mountain-front"></div><div class="art-cloud cloud-one"></div><div class="art-cloud cloud-two"></div><div class="art-caption"><span>MOA COMMUNITY</span><strong>Share a little.<br>Connect a lot.</strong></div></div>
+        <div class="floating-card card-bottom"><span class="mini-icon peach">✎</span><div><strong>함께 만드는 공간</strong><small>당신의 이야기를 기다려요</small></div><span class="sparkle">✦</span></div>
+      </div>
+    </section>
+
+    <section class="feed-section" id="feed">
+      <div class="section-heading"><div><div class="eyebrow">COMMUNITY FEED</div><h2>지금 오가는 이야기 <span class="heading-spark">✳</span></h2><p>마음에 드는 이야기에 반응하고, 당신의 생각도 남겨 보세요.</p></div><button class="btn btn-primary" id="writeButton">＋ 게시물 작성</button></div>
+      <div class="feed-toolbar"><div class="tabs"><button class="tab active" data-filter="all">전체</button><button class="tab" data-filter="질문">질문</button><button class="tab" data-filter="일상">일상</button><button class="tab" data-filter="아이디어">아이디어</button></div><div class="search-wrap"><span>⌕</span><input id="searchInput" type="search" placeholder="게시물 검색"></div></div>
+      <div class="post-grid" id="postGrid"></div>
+      <div class="empty-state hidden" id="emptyState"><span>✧</span><strong>아직 이 이야기는 비어 있어요.</strong><p>첫 번째 게시물을 남겨 보세요!</p></div>
+    </section>
+
+    <section class="join-banner" id="about"><div class="banner-star">✳</div><div><h2>당신의 생각이 모이는 곳</h2><p>좋은 질문 하나, 작은 기록 하나부터 시작해요.</p></div><button class="btn btn-light" id="bannerWrite">함께하기 <span>↗</span></button><div class="banner-decoration">moa.</div></section>
+  </main>
+  <footer><a class="brand footer-brand" href="#"><span class="brand-mark">m</span><span>moa<span class="brand-dot">.</span></span></a><span>작은 생각이 모여, 더 큰 연결이 됩니다.</span><span>© 2026 MOA COMMUNITY</span></footer>
+
+  <div class="modal-backdrop hidden" id="authModal">
+    <section class="modal auth-modal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+      <button class="modal-close" data-close="authModal" aria-label="닫기">×</button><div class="modal-symbol">m<span>.</span></div>
+      <div class="eyebrow">WELCOME TO MOA</div><h2 id="authTitle">다시 만나요!</h2><p class="modal-subtitle" id="authSubtitle">로그인하고 커뮤니티에 참여해 보세요.</p>
+      <form id="authForm"><label for="authName" id="nameLabel" class="hidden">닉네임</label><input id="authName" class="form-input hidden" placeholder="사용할 닉네임" autocomplete="nickname"><label for="authEmail">이메일</label><input id="authEmail" class="form-input" type="email" placeholder="hello@example.com" required autocomplete="email"><label for="authPassword">비밀번호</label><input id="authPassword" class="form-input" type="password" placeholder="비밀번호 입력" required minlength="4" autocomplete="current-password"><button class="btn btn-primary btn-full" type="submit" id="authSubmit">로그인하기 <span>↗</span></button></form>
+      <p class="switch-auth"><span id="switchText">아직 계정이 없나요?</span> <button id="switchAuth">회원가입</button></p><p class="demo-note">데모 안내: 이 버전은 현재 브라우저에 계정과 게시물을 저장합니다.</p>
+    </section>
+  </div>
+
+  <div class="modal-backdrop hidden" id="postModal">
+    <section class="modal post-modal" role="dialog" aria-modal="true" aria-labelledby="postModalTitle">
+      <button class="modal-close" data-close="postModal" aria-label="닫기">×</button><div class="eyebrow">MAKE IT YOURS</div><h2 id="postModalTitle">어떤 이야기를 나눠 볼까요?</h2><p class="modal-subtitle">완벽하지 않아도 괜찮아요. 편하게 적어 주세요.</p>
+      <form id="postForm"><label for="postCategory">게시판 선택</label><select class="form-input" id="postCategory"><option>일상</option><option>질문</option><option>아이디어</option></select><label for="postTitle">제목</label><input class="form-input" id="postTitle" maxlength="90" placeholder="어떤 이야기를 하고 싶나요?" required><label for="postContent">내용</label><textarea class="form-input" id="postContent" rows="5" maxlength="2000" placeholder="당신의 생각을 자유롭게 적어 주세요..." required></textarea><div class="form-bottom"><span>✦ 서로를 존중하는 글을 작성해 주세요.</span><button class="btn btn-primary" type="submit">게시물 올리기 ↗</button></div></form>
+    </section>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
